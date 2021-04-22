@@ -1,5 +1,5 @@
 package stx.fail;
 
-enum StorFailure{
-  
+enum StoreFailure<T>{
+  E_Store_Subsystem(e:T);
 }

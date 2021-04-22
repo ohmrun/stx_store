@@ -11,11 +11,13 @@
     ],
     "releasenote": "",
     "version": "0.0.1",
-    "url": "https://github.com/ohmrun/stx_nano",
+    "url": "https://github.com/ohmrun/stx_store",
     "dependencies": {
-        "tink_core": "",
-        "hx3compat": "",
-        "stx_pico" : ""
+        "tink_core"     : "git:https://github.com/haxetink/tink_core.git",
+        "hx3compat"     : "git:https://github.com/HaxeFoundation/hx3compat.git",
+
+        "stx_pico"      : "git:https://github.com/ohmrun/stx_pico.git",
+        "stx_nano"      : "git:https://github.com/ohmrun/stx_nano.git"
     },
     "classPath": "src/main/haxe"
 }
