@@ -1,5 +1,14 @@
 package stx.data.store;
 
+/**
+  Ins -> Insert
+  Upd -> Update
+  Isd -> Issued
+  Idx -> Primary Index 
+
+  Grm -> Search grammar
+  Err -> Error
+**/
 interface StoreApi<Ins,Upd,Isd,Idx,Grm,Err>{
   
   public function insert(v:Ins):Pledge<Isd,RepoFailure<Err>>;
@@ -11,7 +20,8 @@ interface StoreApi<Ins,Upd,Isd,Idx,Grm,Err>{
   public function lookup_all(?arr:Array<Idx>):Pledge<Array<Isd>,RepoFailure<Err>>;
 
   public function locate_one(v:Grm):Pledge<Option<Isd>,RepoFailure<Err>>;
-  
+  public function search(v:Grm):Pledge<Array<Isd>,RepoFailure<Err>>;
+
   public function delete(id:Idx):Alert<VGFailure>;
   public function patch(data:Upd):Pledge<Option<Isd>,RepoFailure<Err>>;
   
