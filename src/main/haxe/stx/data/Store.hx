@@ -13,16 +13,16 @@ typedef StoreLookupCls<T,I>                                         = stx.data.s
 typedef StoreInsert<Ins>                                            = stx.data.store.StoreInsert.StoreInsert<Ins>; 
 typedef StoreInsertDef<Ins>                                         = stx.data.store.StoreInsert.StoreInsertDef<Ins>;
 typedef StoreInsertApi<Ins>                                         = stx.data.store.StoreInsert.StoreInsertApi<Ins>; 
-typedef StoreInsertCls<Ins>                                         = stx.data.store.StoreInsert.StoreLookupCls<Ins>; 
+typedef StoreInsertCls<Ins>                                         = stx.data.store.StoreInsert.StoreInsertCls<Ins>; 
 
 
 typedef StoreUpdate<Ins,Upd,Idx>                                    = stx.data.store.StoreUpdate.StoreUpdate<Ins,Upd,Idx>; 
 typedef StoreUpdateDef<Ins,Upd,Idx>                                 = stx.data.store.StoreUpdate.StoreUpdateDef<Ins,Upd,Idx>;
 typedef StoreUpdateApi<Ins,Upd,Idx>                                 = stx.data.store.StoreUpdate.StoreUpdateApi<Ins,Upd,Idx>; 
-typedef StoreUpdateCls<Ins,Upd,Idx>                                 = stx.data.store.StoreUpdate.StoreLookupCls<Ins,Upd,Idx>; 
+typedef StoreUpdateCls<Ins,Upd,Idx>                                 = stx.data.store.StoreUpdate.StoreUpdateCls<Ins,Upd,Idx>; 
 
 
 typedef StoreIssued<T,I>                                            = stx.data.store.StoreIssued.StoreIssued<T,I>; 
 typedef StoreIssuedDef<T,I>                                         = stx.data.store.StoreIssued.StoreIssuedDef<T,I>;
 typedef StoreIssuedApi<T,I>                                         = stx.data.store.StoreIssued.StoreIssuedApi<T,I>; 
-typedef StoreIssuedCls<T,I>                                         = stx.data.store.StoreIssued.StoreLookupCls<T,I>; 
+typedef StoreIssuedCls<T,I>                                         = stx.data.store.StoreIssued.StoreIssuedCls<T,I>; 
