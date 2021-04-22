@@ -1,0 +1,9 @@
+-cp src/main/haxe
+
+-D no-deprecation-warnings
+-D analyzer-optimize
+
+-lib stx_nano
+
+-main Main
+--interp
