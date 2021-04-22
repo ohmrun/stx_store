@@ -1,23 +1,22 @@
-package stx.data;
+package stx.data.store;
 
-typedef StoreUpdateDef<Insert_T,Update_T,Index_T> = RepoLookupDef<Update_T,Index_T> & {
-  public final harden : (issued:Update_T) -> Insert_T;
+typedef StoreUpdateDef<Ind,Upd,Idx> = StoreLookupDef<Upd,Idx> & {
+  public final harden : (issued:Upd) -> Ind;
 }
-interface StoreUpdateApi<Insert_T,Update_T,Index_T> extends RepoLookupApi<Update_T,Index_T>{
-  public final harden : (issued:Update_T) -> Insert_T;
+interface StoreUpdateApi<Ind,Upd,Idx> extends StoreLookupApi<Upd,Idx>{
+  public final harden : (issued:Upd) -> Ind;
 }
-@:structInit class StoreUpdateCls<Insert_T,Update_T,Index_T> implements StoreUpdateApi<Insert_T,Update_T,Index_T> extends RepoLookup<Update_T,Index_T>{
+@:structInit class StoreUpdateCls<Ind,Upd,Idx> implements StoreUpdateApi<Ind,Upd,Idx> extends StoreLookupCls<Upd,Idx>{
   public function new(lookup,harden){
     super(lookup);
     this.harden = harden;
   }
-  public final harden : (issued:Update_T) -> Insert_T;
+  public final harden : (issued:Upd) -> Ind;
 }
-@:forward abstract StoreUpdate<Insert_T,Update_T,Index_T>(StoreUpdateCls<Insert_T,Update_T,Index_T>) from StoreUpdateCls<Insert_T,Update_T,Index_T> to StoreUpdateCls<Insert_T,Update_T,Index_T>{
-  @:from static public function fromTup2<Insert_T,Update_T,Index_T>(self:Tup2<Update_T->Index_T,Update_T->Insert_T>):StoreUpdate<Insert_T,Update_T,Index_T>{
+@:forward abstract StoreUpdate<Ind,Upd,Idx>(StoreUpdateCls<Ind,Upd,Idx>) from StoreUpdateCls<Ind,Upd,Idx> to StoreUpdateCls<Ind,Upd,Idx>{
+  @:from static public function fromTup2<Ind,Upd,Idx>(self:Tup2<Upd->Idx,Upd->Ind>):StoreUpdate<Ind,Upd,Idx>{
     return switch(self) {
       case tuple2(l,r)  : new StoreUpdateCls(l,r);
     }
   }
 }
-

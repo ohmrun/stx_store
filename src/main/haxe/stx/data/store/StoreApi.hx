@@ -22,7 +22,7 @@ interface StoreApi<Ins,Upd,Isd,Idx,Grm,Err>{
   public function locate_one(v:Grm):Pledge<Option<Isd>,StoreFailure<Err>>;
   public function search(v:Grm):Pledge<Array<Isd>,StoreFailure<Err>>;
 
-  public function delete(id:Idx):Alert<VGFailure>;
+  public function delete(id:Idx):Alert<Err>;
   public function patch(data:Upd):Pledge<Option<Isd>,StoreFailure<Err>>;
   
   public function upsert_one(data:Upd):Pledge<Isd,StoreFailure<Err>>;

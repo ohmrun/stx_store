@@ -13,7 +13,7 @@ interface StoreInsertApi<Ins>{
   public final secure : (dyn:Dyn) -> Ins;
 }
 @:forward abstract StoreInsert<Ins>(StoreInsertCls<Ins>) from StoreInsertCls<Ins> to StoreInsertCls<Ins>{
-  @:from static public function fromFn<Ins>(fn:Dyn->Ins):RepoInsert<Ins>{
-    return new RepoInsertCls(fn);
+  @:from static public function fromFn<Ins>(fn:Dyn->Ins):StoreInsert<Ins>{
+    return new StoreInsertCls(fn);
   }
 }

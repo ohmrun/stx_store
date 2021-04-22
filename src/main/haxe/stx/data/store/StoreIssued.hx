@@ -1,20 +1,20 @@
 package stx.data.store;
 
-typedef StoreIssuedDef<Issued_T,Index_T> = RepoLookupDef<Issued_T,Index_T> & {
-  public final secure : (dyn:Dyn) -> Issued_T;
+typedef StoreIssuedDef<Isd,Idx> = StoreLookupDef<Isd,Idx> & {
+  public final secure : (dyn:Dyn) -> Isd;
 }
-interface StoreIssuedApi<Issued_T,Index_T> extends RepoLookupApi<Issued_T,Index_T>{
-  public final secure : (dyn:Dyn) -> Issued_T;
+interface StoreIssuedApi<Isd,Idx> extends StoreLookupApi<Isd,Idx>{
+  public final secure : (dyn:Dyn) -> Isd;
 }
-@:structInit class StoreIssuedCls<Issued_T,Index_T> implements StoreIssuedApi<Issued_T,Index_T> extends RepoLookup<Issued_T,Index_T>{
+@:structInit class StoreIssuedCls<Isd,Idx> implements StoreIssuedApi<Isd,Idx> extends StoreLookupCls<Isd,Idx>{
   public function new(lookup,secure){
     super(lookup);
     this.secure = secure;
   }
-  public final secure : (dyn:Dyn) -> Issued_T;
+  public final secure : (dyn:Dyn) -> Isd;
 } 
-@:forward abstract StoreIssued<Issued_T,Index_T>(StoreIssuedCls<Issued_T,Index_T>) from StoreIssuedCls<Issued_T,Index_T> to StoreIssuedCls<Issued_T,Index_T>{
-  @:from static public function fromTup2<Issued_T,Index_T>(self:Tup2<Issued_T->Index_T,Dyn->Issued_T>):StoreIssued<Issued_T,Index_T>{
+@:forward abstract StoreIssued<Isd,Idx>(StoreIssuedCls<Isd,Idx>) from StoreIssuedCls<Isd,Idx> to StoreIssuedCls<Isd,Idx>{
+  @:from static public function fromTup2<Isd,Idx>(self:Tup2<Isd->Idx,Dyn->Isd>):StoreIssued<Isd,Idx>{
     return switch(self) {
       case tuple2(l,r)  : new StoreIssuedCls(l,r);
     }
