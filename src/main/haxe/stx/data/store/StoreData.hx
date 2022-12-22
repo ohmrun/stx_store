@@ -27,14 +27,14 @@ interface StoreDataApi<Ins,Upd,Isd,Idx>{
   static public function unto<Ins,Upd,Isd,Idx>(self:StoreData<Ins,Upd,Isd,Idx>){
     return new StoreData(self);
   }
-  static public function make<Ins,Upd,Isd,Idx>(insert,update,issued):StoreData<Ins,Upd,Isd,Idx>{
+  @:noUsing static public function make<Ins,Upd,Isd,Idx>(insert,update,issued):StoreData<Ins,Upd,Isd,Idx>{
     return unto(({
       insert : insert,
       update : update,
       issued : issued
     }:StoreDataCls<Ins,Upd,Isd,Idx>));
   }
-  static public function make0<Ins,Upd,Isd,Idx>(insert_secure:Dyn->Ins,update_lookup:Upd->Idx,update_harden:Upd->Ins,issued_lookup:Isd->Idx,issued_secure:Dyn->Isd){
+  @:noUsing static public function make0<Ins,Upd,Isd,Idx>(insert_secure:Dyn->Ins,update_lookup:Upd->Idx,update_harden:Upd->Ins,issued_lookup:Isd->Idx,issued_secure:Dyn->Isd){
     return make(insert_secure,tuple2(update_lookup,update_harden),tuple2(issued_lookup,issued_secure));
   }
 }

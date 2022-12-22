@@ -14,6 +14,9 @@ interface StoreApi<Ins,Upd,Isd,Idx,Grm,Err>{
   public function insert(v:Ins):Pledge<Isd,StoreFailure<Err>>;
   public function insert_all(arr:Array<Ins>):Pledge<Array<Isd>,StoreFailure<Err>>;
 
+  /**
+    Inserts only if the test returns nothing
+  **/
   public function resert(test:Grm,value:Ins):Pledge<Couple<Bool,Isd>,StoreFailure<Err>>;
 
   public function lookup_one(idx:Idx):Pledge<Option<Isd>,StoreFailure<Err>>;
